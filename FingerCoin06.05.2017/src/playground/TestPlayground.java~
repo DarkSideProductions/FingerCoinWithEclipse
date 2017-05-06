@@ -1,0 +1,36 @@
+package playground;
+import java.util.*;
+/**
+ * This is a test class for the package named playground.
+ * @author Ceyhun Emre Öztürk
+ * @version 28.04.2017
+ */
+public class TestPlayground {
+   public static void main( String[] args) {
+      //variables
+      ArrayList<Drawable> elements;
+      Goal goal;
+      Goalkeeper keeper;
+      Coin one;
+      Coin two;
+      Coin three;
+      Field pitch;
+      int difficulty;
+      
+      difficulty = 1;
+      goal = new Goal( 400, 0);
+      keeper = new Goalkeeper( difficulty, 400, 0);
+      one = new Coin( 250, 500);
+      two = new Coin( 400, 600);
+      three = new Coin( 550, 500);
+      
+      elements = new ArrayList<>();
+      elements.add( goal);
+      elements.add( keeper);
+      elements.add( one);
+      elements.add( two);
+      elements.add( three);
+      
+      pitch = new Field( difficulty, 800, 900, elements);
+   }
+}

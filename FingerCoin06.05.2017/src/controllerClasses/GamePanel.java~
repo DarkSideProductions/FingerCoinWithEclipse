@@ -1,0 +1,60 @@
+package controllerClasses;
+import javax.swing.*;
+import viewClasses.*;
+import playground.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.*;
+import java.awt.image.*;
+import javax.imageio.*;
+import java.io.*;
+/**
+ * This class controls the "actions" of the Finger Coin game by using javax.swing.Timer and simulates the game by
+ * creating instances of classes the game has.
+ * @author Ceyhun Emre Öztürk, Mustafa Bay
+ * @version 04.05.2017
+ */
+public class GamePanel extends JPanel
+{
+   //Properties
+   CoinVisual oneVisual, twoVisual, threeVisual;
+   Coin one, two, three;
+   GoalVisual goalVisual;
+   GoalkeeperVisual goolkeeperVisual;
+   FieldVisual pitchVisual;
+   
+   /**
+    * Constructor
+    * @tlm difficultyLevel is the difficulty level of the game
+    * @tlm numOfPlayers is the number of players
+    */
+   public GamePanel( int difficultyLevel, int numOfPlayers, int coinType)
+   {
+      initGame( difficultyLevel, numOfPlayers, coinType);
+   }
+   
+   public void initGame( int difficultyLevel, int numOfPlayers, int coinType)
+   {
+      File f;
+      if ( coinType == 0)
+      {
+         f = new File( "tl.png");
+      }
+      else if ( coinType == 1)
+      {
+    	 f = new File( "dolar.png");
+      }
+      else
+      {
+    	  f = new File( "euro.png");
+      }
+      
+      oneVisual = new CoinVisual( 300, 600, f);
+      twoVisual = new CoinVisual( 400, 700, f);
+      threeVisual = new CoinVisual( 500, 600, f);
+      
+      one = oneVisual.getCoin();
+      two = twoVisual.getCoin();
+      three = threeVisual.getCoin();
+   }
+}
